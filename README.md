@@ -21,3 +21,5 @@ A class based approach
 
 This sample plugin consists of set of functions that are called by the Bareos FD at certain points. Since I prefer to use classes; I've written a little wrapper class, that makes it hopefully easier to program python plugins using a base class.
 
+Please to the Wiki page to read more about the plugins: https://github.com/aussendorf/bareos-fd-python-plugins/wiki
+
