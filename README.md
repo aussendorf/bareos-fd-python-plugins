@@ -5,7 +5,7 @@ Sample pyhon plugins for Bareos FD
 
 Introduction
 
-Bacula's FD plugin interface calls C-functions at certain entry points in the FD code. Developing plugins required deep C-knowledge. In Bareos this plugin interface has been extended with python bindings. This allows developers to write FD plugins n Python.
+Bacula's FD plugin interface calls C-functions at certain entry points in the FD code. Developing plugins required deep C-knowledge. In Bareos this plugin interface has been extended with python bindings. This allows developers to write FD plugins in Python.
 
 Documentation is yet to be written, this README gives some starting points and examples but is not intended to replace full documentation. We hope to encourage people to use the Python interface to develop their own plugins to suite their needs.
 
