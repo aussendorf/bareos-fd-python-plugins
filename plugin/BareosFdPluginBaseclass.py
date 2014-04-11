@@ -19,6 +19,7 @@ class BareosFdPluginBaseclass:
         events.append(bEventType['bEventJobEnd']);
         events.append(bEventType['bEventEndBackupJob']);
         events.append(bEventType['bEventEndFileSet']);
+        events.append(bEventType['bEventHandleBackupFile']);
         RegisterEvents(context, events);
         # get some static Bareos values
         self.fdname = GetValue(context, bVariable['bVarFDName']);
@@ -118,6 +119,19 @@ class BareosFdPluginBaseclass:
     
     def restore_object_data(self, context, ROP):
         DebugMessage(context, 100, "restore_object_data called with " + str(ROP) + "\n");
+        return bRCs['bRC_OK'];
+
+    def create_file(self,context, restorepkt):
+        DebugMessage(context, 100, "create_file() entry point in Python called with" + str(restorepkt) + "\n")
+        restorepkt.create_status = bCFs['CF_EXTRACT'];
+        return bRCs['bRC_OK'];
+
+    def check_file(self,context, fname):
+        DebugMessage(context, 100, "check_file() entry point in Python called with" + str(fname) + "\n")
+        return bRCs['bRC_OK'];
+
+    def handle_backup_file(self,context, savepkt):
+        DebugMessage(context, 100, "handle_backup_file called with " + str(savepkt) + "\n");
         return bRCs['bRC_OK'];
 
 # vim: ts=4 tabstop=4 expandtab shiftwidth=4 softtabstop=4

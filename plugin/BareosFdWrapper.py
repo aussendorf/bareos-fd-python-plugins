@@ -31,3 +31,12 @@ def restore_object_data(context, ROP):
 def plugin_io(context, IOP):
     return bareos_fd_plugin_object.plugin_io(context, IOP);
 
+def create_file(context, restorepkt):
+    return bareos_fd_plugin_object.create_file(context, restorepkt)
+
+def check_file(context, fname):
+    return bareos_fd_plugin_object.check_file(context, fname)
+
+def handle_backup_file(context, savepkt):
+    return bareos_fd_plugin_object.handle_backup_file(context, savepkt)
+
