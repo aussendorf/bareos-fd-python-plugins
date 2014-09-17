@@ -1,3 +1,6 @@
+#This file is now part of the main Bareos repo. Do not use this version, use the package bareos-filedaemon-python-plugin instead
+
+
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
