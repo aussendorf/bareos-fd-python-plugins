@@ -33,6 +33,8 @@ def handle_plugin_event(context, event):
 
   elif event == bDirEventType['bDirEventJobEnd']:
     DebugMessage(context, 100, "bDirEventJobEnd event triggered\n");
+    # See http://regress.bareos.org/doxygen/html/d2/d75/namespacebareos__dir__consts.html
+    # for a list of available brDirVariable
     jobName = GetValue(context, brDirVariable['bDirVarJobName']);
     # JobStatus is one char T:Terminated Successfully, E: terminated with errors, W: warning, A: Canceled by user, f: fatal error
     jobStatus = chr(GetValue(context, brDirVariable['bDirVarJobStatus']));
@@ -40,7 +42,6 @@ def handle_plugin_event(context, event):
     jobBytes = GetValue(context, brDirVariable['bDirVarJobBytes']);
     jobId = GetValue(context, brDirVariable['bDirVarJobId']);
     jobClient = GetValue(context, brDirVariable['bDirVarClient']);
-    #DebugMessage(context, 100, "Job %s stopped with status %s\n" %(jobname,jobstatus));
     DebugMessage(context, 100, "Job %s stopped with status %s, errors: %s, Total bytes: %d\n" %(jobName,jobStatus,jobErrors,jobBytes));
     nagiosMessage = "";
     if (jobStatus == 'E' or jobStatus == 'f'):
@@ -61,7 +62,7 @@ def handle_plugin_event(context, event):
     DebugMessage(context, 100, "Nagios Code: %d, NagiosMessage: %s\n" %(nagiosResult,nagiosMessage));
 
 #TODO: for this example we have computed nagiosResult and nagiosMessage. 
-# Must be somehow assigned to a host and serve and
+# Must be somehow assigned to a host and service and
 # passed to Nagios / Icinga via command pipe or nsca. 
 
 
